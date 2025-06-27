@@ -1,0 +1,76 @@
+# ================================
+# TERRAFORM
+# ================================
+
+# State files
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+
+# .terraform directory (plugins, modules, cache)
+.terraform/
+
+# Terraform variable files (souvent sensibles)
+*.tfvars
+*.tfvars.json
+
+# Terraform plan output
+*.tfplan
+
+# Terraform lock file (inutile dans dépôt public, sauf si équipe)
+.terraform.lock.hcl
+
+# Backend configuration (optionnel si tu stockes des secrets)
+backend.tf
+
+# ================================
+# ANSIBLE
+# ================================
+
+# Inventory files with sensitive hosts
+inventories/
+*.inventory
+
+# Vault password files
+.vault_pass.txt
+*.vault_pass
+*.vault
+
+# Private SSH keys
+*.pem
+*.key
+
+# Secrets or credentials
+secrets.yml
+group_vars/*/vault.yml
+host_vars/*/vault.yml
+
+# Fact cache
+.fact_cache/
+__pycache__/
+
+# Ansible logs
+ansible.log
+
+# Python venv if used
+.venv/
+venv/
+
+# ================================
+# SYSTEM & EDITORS
+# ================================
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+*.orig
