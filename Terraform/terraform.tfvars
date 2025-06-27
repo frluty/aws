@@ -1,5 +1,0 @@
-region      = "us-east-1"
-profile     = "DevopsLab-617995200578"
-vpc_name    = "pod1-vpc-lfs"
-cidr_block  = "192.168.1.0/24"
-subnet_name = "podx-public_subnet"
