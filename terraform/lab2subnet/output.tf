@@ -8,13 +8,13 @@ output "vpc_cidr_block" {
   value       = data.aws_vpc.this.cidr_block
 }
 
-output "subnet_private_id" {
+output "aws_subnet_private" {
   description = "ID of the created private subnet"
-  value       = aws_subnet_private.this.id
+  value       = aws_subnet.private.id
 }
 
-output "subnet_public_id" {
+output "aws_subnet_public" {
 
   description = "ID of the pubblic subnet created"
-  value       = aws_subnet_public.this.id
+  value       = aws_subnet.public.id
 }
