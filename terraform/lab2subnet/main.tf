@@ -6,13 +6,19 @@ data "aws_vpc" "this" {
   }
 }
 
-# Create a subnet inside the VPC
-resource "aws_subnet" "this" {
+# Create a private subnet inside the VPC
+resource "aws_subnet_private" "this" {
   vpc_id            = data.aws_vpc.this.id
-  cidr_block        = var.cidr_block
-  availability_zone = "${var.region}a"  # optionnel mais précis
-
+  cidr_block        = var.cidr_block_private
   tags = {
-    Name = var.subnet_name
+    Name = var.subnet_name_private
+  }
+}
+
+resource "aws_subnet_public" "this"{
+  vpc_id          = data.aws_vpc.this.id
+  cidr_block      = var.cidr_block_public
+  tags = {
+      Name = var.subnet_name_public
   }
 }
