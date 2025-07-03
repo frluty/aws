@@ -39,3 +39,15 @@ variable "cidr_block_route_table" {
   type        = string
   default     = "0.0.0.0/0"
 }
+
+variable "key_name" {
+  description = "Name of the AWS key pair"
+  type        = string
+  default     = "pod1-vm-key"
+}
+
+variable "private_key_path" {
+  description = "Path to save the private key PEM file"
+  type        = string
+  default     = "./pod1-vm-key.pem"
+}

@@ -1,0 +1,27 @@
+digraph G {
+  rankdir = "RL";
+  node [shape = rect, fontname = "sans-serif"];
+  "data.aws_ami.ubuntu_focal" [label="data.aws_ami.ubuntu_focal"];
+  "data.aws_vpc.this" [label="data.aws_vpc.this"];
+  "aws_instance.pod1_vm" [label="aws_instance.pod1_vm"];
+  "aws_internet_gateway.igw" [label="aws_internet_gateway.igw"];
+  "aws_key_pair.pod1_vm_key" [label="aws_key_pair.pod1_vm_key"];
+  "aws_route_table.public" [label="aws_route_table.public"];
+  "aws_route_table_association.public" [label="aws_route_table_association.public"];
+  "aws_security_group.pod1_ssh_sg" [label="aws_security_group.pod1_ssh_sg"];
+  "aws_subnet.public" [label="aws_subnet.public"];
+  "local_file.private_key_pem" [label="local_file.private_key_pem"];
+  "tls_private_key.pod1_vm_key" [label="tls_private_key.pod1_vm_key"];
+  "aws_instance.pod1_vm" -> "data.aws_ami.ubuntu_focal";
+  "aws_instance.pod1_vm" -> "aws_key_pair.pod1_vm_key";
+  "aws_instance.pod1_vm" -> "aws_security_group.pod1_ssh_sg";
+  "aws_instance.pod1_vm" -> "aws_subnet.public";
+  "aws_internet_gateway.igw" -> "data.aws_vpc.this";
+  "aws_key_pair.pod1_vm_key" -> "tls_private_key.pod1_vm_key";
+  "aws_route_table.public" -> "aws_internet_gateway.igw";
+  "aws_route_table_association.public" -> "aws_route_table.public";
+  "aws_route_table_association.public" -> "aws_subnet.public";
+  "aws_security_group.pod1_ssh_sg" -> "data.aws_vpc.this";
+  "aws_subnet.public" -> "data.aws_vpc.this";
+  "local_file.private_key_pem" -> "tls_private_key.pod1_vm_key";
+}

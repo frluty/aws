@@ -8,9 +8,11 @@ output "vpc_cidr_block" {
   value       = data.aws_vpc.this.cidr_block
 }
 
-
 output "aws_subnet_public" {
-
-  description = "ID of the pubblic subnet created"
+  description = "ID of the public subnet created"
   value       = aws_subnet.public.id
+}
+
+output "pod1_vm_public_ip" {
+  value = aws_instance.pod1_vm.public_ip
 }
